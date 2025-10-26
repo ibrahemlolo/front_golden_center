@@ -5,13 +5,18 @@ import { Link } from 'react-router-dom'
 
 function Product( {product} ) {
      return(
-          <Card className="my-3 p-3 rounded  border-secondary ">
+          <Card style={{ overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="my-3 p-3 rounded  border-secondary ">
 
                <Link to={`/products/${product._id}`}>
                     <Card.Img src={product.image} variant='top' />
                </Link>
 
-               
+               {/* <div style={{ width: '100%', height: 180, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+               </div> */}
+
+
+
+
                <Card.Body>
                     <Link to={`/products/${product._id}`}>
                          <Card.Title as="div">
