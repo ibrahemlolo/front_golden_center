@@ -1,10 +1,11 @@
-import  { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProducts } from '../actions/productActions'
 import Product from '../components/Product'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import ContainerForm from '../components/FormContainer'
 
 function HomeScreen() {
      const dispatch = useDispatch()
@@ -12,7 +13,7 @@ function HomeScreen() {
      const { loading, error, products } = productList
 
 
-     useEffect(() => { 
+     useEffect(() => {
           dispatch(listProducts())
 
      }, [dispatch])
@@ -21,23 +22,23 @@ function HomeScreen() {
      return (<div>
 
           <h1>Latest Products</h1>
-          {loading ? 
+          {loading ?
                <Loader />
-           : error ? 
-               <Message variant='danger'>{error}</Message>
-                : <Row>
-                    {products.map(prod =>
-                    (
-                         <Col key={prod._id} sm={12} md={6} lg={4} xl={3}>
-                              <Product product={prod} />
-                         </Col>
-                    )
-                    )}
-               </Row>
-    
-     
+               : error ?
+                    <Message variant='danger'>{error}</Message>
+                    : <Row>
+                         {products.map(prod =>
+                         (
+                              <Col key={prod._id} sm={12} md={6} lg={4} xl={3}>
+                                   <Product product={prod} />
+                              </Col>
+                         )
+                         )}
+                    </Row>
+
+
           }
-          
+
      </div>
      )
 }

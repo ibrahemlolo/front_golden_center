@@ -27,9 +27,9 @@ function CartScreen({ match,location, history }) {
   }, [dispatch, productId, qty])
 
 
-  const removeFromCartHandler = (id) => {
-    dispatch(removeFromCart(id))
-  }
+  // const removeFromCartHandler = (id) => {
+  //   dispatch(removeFromCart(id))
+  // }
   
   return (
     <Row>
@@ -106,7 +106,7 @@ function CartScreen({ match,location, history }) {
                 className='btn-block'
                 disabled={cart.cartItems.length === 0}
                 onClick={() => {
-                  history('/login?redirect=shipping')
+                  history('/shipping')
                 }}
               >
                 Proceed To Checkout
